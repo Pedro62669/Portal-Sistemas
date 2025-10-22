@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Sistemas - Prefeitura Municipal de São Gonçalo do Rio Abaixo</title>
+    <meta name="description" content="Portal de Sistemas da Prefeitura de São Gonçalo do Rio Abaixo. Acesso aos sistemas de avaliação, esportes, meio ambiente, educação, contratos e mais.">
+    <meta name="theme-color" content="#2e7d32">
+    <link rel="icon" href="logo.png" sizes="32x32" type="image/png">
+    <meta property="og:title" content="Portal de Sistemas - Prefeitura Municipal de São Gonçalo do Rio Abaixo">
+    <meta property="og:description" content="Acesso centralizado aos sistemas municipais.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logotipo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <picture>
+                    <source srcset="logotipo.webp" type="image/webp">
+                    <img src="logo.png" alt="Brasão da Prefeitura" class="brasao" width="150" height="170">
+                </picture>
+                <div class="title-group">
+                    <h1>Prefeitura Municipal de São Gonçalo do Rio Abaixo</h1>
+                    <h2>Portal de Sistemas</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo" class="container">
+        <!-- Barra de pesquisa e filtros -->
+        <div class="search-filter-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar sistemas..." autocomplete="off">
+            </div>
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="gestao">Gestão de Pessoas</button>
+                <button class="filter-btn" data-filter="esportes">Esportes</button>
+                <button class="filter-btn" data-filter="meio-ambiente">Meio Ambiente</button>
+                <button class="filter-btn" data-filter="educacao">Educação</button>
+                <button class="filter-btn" data-filter="trabalho">Trabalho e Desenvolvimento Social</button>
+                <button class="filter-btn" data-filter="tecnologia">Ciência e Tecnologia</button>
+            </div>
+        </div>
+        
+        <!-- Contador de sistemas -->
+        <div class="systems-counter">
+            <span id="systemsCount">13 sistemas disponíveis</span>
+        </div>
+        
+        <ul class="sistemas" role="list">
+            <li class="sistema-card" data-category="gestao" data-keywords="avaliação funcionario publico rh recursos humanos">
+                <span class="secretaria-tag">Secretaria de Gestão de Pessoas</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #6c5ce7">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 style="background-color: #6c5ce7; color: white">Sistema de Avaliação do Funcionário Público</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Plataforma para avaliação de desempenho dos servidores municipais.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://rh.pmsgrainterno.site/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="esportes" data-keywords="agendamento quadras esportes lazer juventude reserva">
+                <span class="secretaria-tag">Secretaria de Esportes, Lazer e Juventude</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #f39c12">
+                            <i class="fas fa-volleyball-ball"></i>
+                        </div>
+                        <h3 style="background-color: #f39c12; color: white">Sistema de Agendamento de Quadras</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Gerenciamento de reservas e agendamentos dos espaços esportivos municipais.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://esportes.pmsgrainterno.site/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="meio-ambiente" data-keywords="mudas meio ambiente plantas seedling verde">
+                <span class="secretaria-tag">Secretaria de Meio Ambiente</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #27ae60">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 style="background-color: #27ae60; color: white">Sistema de Controle de Mudas</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Gerenciamento e distribuição de mudas da Secretaria de Meio Ambiente.</p>
+                        <div class="sistema-acesso">
+                            <div class="badges-container">
+                                <span class="badge interno">Acesso Interno</span>
+                                <span class="badge publico">Acesso Público</span>
+                            </div>
+                            <div class="btn-dropdown">
+                                <button class="btn-acessar dropdown-btn">
+                                    Acessar Sistema <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="https://meioambiente.pmsgrainterno.site/pages/login.php" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                                        <i class="fas fa-lock"></i> Acesso Interno
+                                    </a>
+                                    <a href="https://meioambiente.pmsgrainterno.site/pages/visitantes.php" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                                        <i class="fas fa-globe"></i> Área do Visitante
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="educacao" data-keywords="almoxarifado estoque inventario educacao escolas">
+                <span class="secretaria-tag">Secretaria de Educação</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #e67e22">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3 style="background-color: #e67e22; color: white">Sistema de Controle de Almoxarifado</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Gerenciamento de estoque e inventário do almoxarifado da Educação.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://educacao.pmsgrainterno.site/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="contratos gestao ti tecnologia">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Sistema de Gestão de Contratos</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Controle e acompanhamento dos contratos municipais de TI.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://contratosti.pmsgrainterno.site/index.php?page=login" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="ponto frequencia registro funcionarios">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Sistema de Gestão de Ponto</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Controle de frequência, folgas e registro de ponto dos funcionários do setor.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge local">Acesso Local</span>
+                            <span class="local-info">Secretaria de TI</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="controle processos internos gerenciamento">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Sistema de Controle</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema de gerenciamento e controle de processos internos.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge local">Acesso Local</span>
+                            <span class="local-info">CVM</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="energia eletrica contas gestao">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Sistema de Energia</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema de gestão de contas de energia elétrica municipal.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://energia.pmsgra.net/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="sistema-card" data-category="trabalho" data-keywords="habitacao moradia gestao">
+                <span class="secretaria-tag">Secretaria de Trabalho e Desenvolvimento Social</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #ff6b35">
+                            <i class="fas fa-house"></i>
+                        </div>
+                        <h3 style="background-color: #ff6b35; color: white">Sistema da Habitação</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema de consulta de gerenciamento de habitação.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://gesgra.pmsgrainterno.site/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="glpi dashboard tickets suporte">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Dashboard do GLPI</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema de dashboard para exibir dados resumidos do GLPI.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://glpi.pmsgra.net/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="tecnologia" data-keywords="ramais telefones contatos secretarias">
+                <span class="secretaria-tag">Secretaria de Ciência e Tecnologia</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #3498db">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 style="background-color: #3498db; color: white">Ramais das Secretarias</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema de consulta de ramais.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge interno">Acesso Interno</span>
+                            <a href="https://ramais.pmsgra.net/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="meio-ambiente" data-keywords="reserva peti meio ambiente natureza">
+                <span class="secretaria-tag">Secretaria de Meio Ambiente</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #27ae60">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 style="background-color: #27ae60; color: white">Site da Reserva do PETI</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Site com informações sobre a Reserva do PETI.</p>
+                        <div class="sistema-acesso">
+                            <span class="badge publico">Acesso Publico</span>
+                            <span  style="display: inline-block;"class="badge-desenvolvimento">EM DESENVOLVIMENTO</span>
+                            <a href="https://peti.pmsgra.net/" class="btn-acessar" target="_blank" rel="noopener noreferrer">Acessar Sistema</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="sistema-card" data-category="educacao" data-keywords="beneficios educacao auxilio estudantes">
+                <span class="secretaria-tag">Secretaria de Educação</span>
+                <div class="sistema-content">
+                    <div class="sistema-header">
+                        <div class="sistema-icon" style="background-color: #e67e22">
+                            <i class="fas fa-money-bill"></i>
+                        </div>
+                        <h3 style="background-color: #e67e22; color: white">Sistema de Benefícios da Educação</h3>
+                    </div>
+                    <div class="sistema-info">
+                        <p>Sistema voltado para a gestão dos benefícios da educação.</p>
+                        <div>
+                            <p class="badge-desenvolvimento">EM DESENVOLVIMENTO</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Prefeitura Municipal de São Gonçalo do Rio Abaixo</p>
+            <p>Desenvolvido pela Secretaria Municipal de Ciência e Tecnologia</p>
+            <div class="admin-link">
+                <a href="admin/login.html" class="admin-access">
+                    <i class="fas fa-cog"></i>
+                    Área Administrativa
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript para funcionalidades interativas -->
+    <script>
+        // Funcionalidade de pesquisa
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const systemCards = document.querySelectorAll('.sistema-card');
+            const systemsCount = document.getElementById('systemsCount');
+            
+            let currentFilter = 'all';
+            
+            // Função para atualizar contador
+            function updateCounter() {
+                const visibleCards = document.querySelectorAll('.sistema-card:not([style*="display: none"])');
+                const count = visibleCards.length;
+                systemsCount.textContent = `${count} sistema${count !== 1 ? 's' : ''} ${count !== 1 ? 'disponíveis' : 'disponível'}`;
+            }
+            
+            // Função para filtrar sistemas
+            function filterSystems() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                systemCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const keywords = card.dataset.keywords.toLowerCase();
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const matchesSearch = searchTerm === '' || 
+                        title.includes(searchTerm) || 
+                        description.includes(searchTerm) || 
+                        keywords.includes(searchTerm);
+                    
+                    const matchesFilter = currentFilter === 'all' || category === currentFilter;
+                    
+                    if (matchesSearch && matchesFilter) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeIn 0.3s ease-in';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                updateCounter();
+            }
+            
+            // Event listeners
+            searchInput.addEventListener('input', filterSystems);
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    currentFilter = this.dataset.filter;
+                    filterSystems();
+                });
+            });
+            
+            // Inicializar contador
+            updateCounter();
+            
+            
+            // Funcionalidade do dropdown
+            const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                    const isActive = dropdown.classList.contains('active');
+                    
+                    // Fechar todos os dropdowns e remover elevação dos cards
+                    document.querySelectorAll('.btn-dropdown').forEach(d => d.classList.remove('active'));
+                    document.querySelectorAll('.sistema-card').forEach(c => c.classList.remove('dropdown-open'));
+                    
+                    // Abrir/fechar o dropdown clicado e elevar o card correspondente
+                    if (!isActive) {
+                        dropdown.classList.add('active');
+                        const card = this.closest('.sistema-card');
+                        if (card) card.classList.add('dropdown-open');
+                    }
+                });
+            });
+            
+            // Fechar dropdown ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.btn-dropdown')) {
+                    document.querySelectorAll('.btn-dropdown').forEach(d => d.classList.remove('active'));
+                    document.querySelectorAll('.sistema-card').forEach(c => c.classList.remove('dropdown-open'));
+                }
+            });
+            
+            // Fechar dropdown ao clicar em um item
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const dropdown = this.closest('.btn-dropdown');
+                    const card = dropdown.closest('.sistema-card');
+                    if (card) card.classList.remove('dropdown-open');
+                    dropdown.classList.remove('active');
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html> 

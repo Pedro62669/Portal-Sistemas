@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Portal de Sistemas</title>
+    <meta name="description" content="Dashboard administrativo do Portal de Sistemas">
+    <meta name="theme-color" content="#2e7d32">
+    <link rel="icon" href="../logo.png" sizes="32x32" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body class="dashboard-body">
+    <!-- Header do Dashboard -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-left">
+                <img src="../logo.png" alt="Brasão da Prefeitura" class="header-logo">
+                <div class="header-title">
+                    <h1>Portal de Sistemas</h1>
+                    <span>Dashboard Administrativo</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="currentUser">Admin</span>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#sistemas" class="nav-item" data-section="sistemas">
+                <i class="fas fa-cogs"></i>
+                <span>Gerenciar Sistemas</span>
+            </a>
+            <a href="#categorias" class="nav-item" data-section="categorias">
+                <i class="fas fa-tags"></i>
+                <span>Categorias</span>
+            </a>
+            <a href="#configuracoes" class="nav-item" data-section="configuracoes">
+                <i class="fas fa-cog"></i>
+                <span>Configurações</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="content-section active">
+            <div class="section-header">
+                <h2>Dashboard</h2>
+                <p>Visão geral do Portal de Sistemas</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalSistemas">13</h3>
+                        <p>Sistemas Ativos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>6</h3>
+                        <p>Categorias</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>1</h3>
+                        <p>Acesso Público</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>10</h3>
+                        <p>Acesso Interno</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Sistemas por Categoria</h3>
+                    <div class="category-stats">
+                        <div class="category-item">
+                            <span class="category-name">Gestão de Pessoas</span>
+                            <span class="category-count">1</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Esportes</span>
+                            <span class="category-count">1</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Meio Ambiente</span>
+                            <span class="category-count">2</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Educação</span>
+                            <span class="category-count">2</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Ciência e Tecnologia</span>
+                            <span class="category-count">6</span>
+                        </div>
+                        <div class="category-item">
+                            <span class="category-name">Trabalho e Desenvolvimento Social</span>
+                            <span class="category-count">1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Ações Rápidas</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn" onclick="showSection('sistemas')">
+                            <i class="fas fa-plus"></i>
+                            Adicionar Sistema
+                        </button>
+                        <button class="action-btn" onclick="showSection('categorias')">
+                            <i class="fas fa-tag"></i>
+                            Gerenciar Categorias
+                        </button>
+                        <button class="action-btn" onclick="window.open('../index.html', '_blank')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Ver Portal
+                        </button>
+                        <button class="action-btn" onclick="exportData()">
+                            <i class="fas fa-download"></i>
+                            Exportar Dados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistemas Section -->
+        <section id="sistemas-section" class="content-section">
+            <div class="section-header">
+                <h2>Gerenciar Sistemas</h2>
+                <div class="header-actions">
+                    <button class="btn-secondary" onclick="dashboard.refreshData()">
+                        <i class="fas fa-sync-alt"></i>
+                        Atualizar Dados
+                    </button>
+                    <button class="btn-primary" onclick="openSistemaModal()">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Sistema
+                    </button>
+                </div>
+            </div>
+
+            <div class="sistemas-table-container">
+                <table class="sistemas-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Tipo de Acesso</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sistemasTableBody">
+                        <!-- Sistemas serão carregados dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Categorias Section -->
+        <section id="categorias-section" class="content-section">
+            <div class="section-header">
+                <h2>Gerenciar Categorias</h2>
+                <button class="btn-primary" onclick="openCategoriaModal()">
+                    <i class="fas fa-plus"></i>
+                    Adicionar Categoria
+                </button>
+            </div>
+
+            <div class="categorias-grid">
+                <!-- Categorias serão carregadas dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Configurações Section -->
+        <section id="configuracoes-section" class="content-section">
+            <div class="section-header">
+                <h2>Configurações</h2>
+            </div>
+
+            <div class="config-grid">
+                <div class="config-card">
+                    <h3>Informações do Portal</h3>
+                    <form id="portalConfigForm">
+                        <div class="form-group">
+                            <label for="portalTitle">Título do Portal</label>
+                            <input type="text" id="portalTitle" value="Portal de Sistemas">
+                        </div>
+                        <div class="form-group">
+                            <label for="portalDescription">Descrição</label>
+                            <textarea id="portalDescription" rows="3">Portal de Sistemas da Prefeitura de São Gonçalo do Rio Abaixo</textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Salvar Configurações</button>
+                    </form>
+                </div>
+
+                <div class="config-card">
+                    <h3>Segurança</h3>
+                    <div class="security-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableSSL" checked>
+                            <span class="checkmark"></span>
+                            Forçar HTTPS
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableLogs" checked>
+                            <span class="checkmark"></span>
+                            Ativar Logs de Acesso
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableBackup">
+                            <span class="checkmark"></span>
+                            Backup Automático
+                        </label>
+                    </div>
+                    <button class="btn-secondary" onclick="changePassword()">
+                        <i class="fas fa-key"></i>
+                        Alterar Senha Admin
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Sistema -->
+    <div id="sistemaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Adicionar Sistema</h3>
+                <button class="modal-close" onclick="closeSistemaModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="sistemaForm">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sistemaNome">Nome do Sistema *</label>
+                            <input type="text" id="sistemaNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sistemaCategoria">Categoria *</label>
+                            <select id="sistemaCategoria" required>
+                                <option value="">Selecione uma categoria</option>
+                                <option value="gestao">Gestão de Pessoas</option>
+                                <option value="esportes">Esportes</option>
+                                <option value="meio-ambiente">Meio Ambiente</option>
+                                <option value="educacao">Educação</option>
+                                <option value="trabalho">Trabalho e Desenvolvimento Social</option>
+                                <option value="tecnologia">Ciência e Tecnologia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaDescricao">Descrição *</label>
+                        <textarea id="sistemaDescricao" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sistemaIcon">Ícone</label>
+                            <select id="sistemaIcon">
+                                <option value="fas fa-cog">Configurações</option>
+                                <option value="fas fa-user-tie">Usuário</option>
+                                <option value="fas fa-volleyball-ball">Esportes</option>
+                                <option value="fas fa-seedling">Meio Ambiente</option>
+                                <option value="fas fa-graduation-cap">Educação</option>
+                                <option value="fas fa-file-contract">Contratos</option>
+                                <option value="fas fa-clock">Ponto</option>
+                                <option value="fas fa-tasks">Tarefas</option>
+                                <option value="fas fa-bolt">Energia</option>
+                                <option value="fas fa-house">Habitação</option>
+                                <option value="fas fa-clipboard">Dashboard</option>
+                                <option value="fas fa-phone">Telefone</option>
+                                <option value="fas fa-tree">Natureza</option>
+                                <option value="fas fa-money-bill">Financeiro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sistemaCor">Cor do Sistema</label>
+                            <input type="color" id="sistemaCor" value="#3498db">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaUrl">URL do Sistema</label>
+                        <input type="url" id="sistemaUrl" placeholder="https://exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaTipoAcesso">Tipo de Acesso</label>
+                        <select id="sistemaTipoAcesso">
+                            <option value="interno">Acesso Interno</option>
+                            <option value="publico">Acesso Público</option>
+                            <option value="local">Acesso Local</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaKeywords">Palavras-chave (separadas por vírgula)</label>
+                        <input type="text" id="sistemaKeywords" placeholder="sistema, gestão, admin">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeSistemaModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Sistema</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Categoria -->
+    <div id="categoriaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="categoriaModalTitle">Adicionar Categoria</h3>
+                <button class="modal-close" onclick="closeCategoriaModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="categoriaForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="categoriaNome">Nome da Categoria *</label>
+                        <input type="text" id="categoriaNome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoriaDescricao">Descrição</label>
+                        <textarea id="categoriaDescricao" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoriaCor">Cor da Categoria</label>
+                        <input type="color" id="categoriaCor" value="#3498db">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="closeCategoriaModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Categoria</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

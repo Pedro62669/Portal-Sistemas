@@ -1,0 +1,797 @@
+/* Estilos gerais */
+:root {
+    --primary-color: #2e7d32; /* Verde para elementos delimitadores */
+    --secondary-color: #1b5e20; /* Verde mais escuro */
+    --accent-color: #ff9800; /* Laranja */
+    --text-color: #424242; /* Cinza escuro para textos */
+    --light-bg: #f8f9fa;
+    --dark-gray: #424242; /* Cinza escuro */
+    --interno-badge: #e74c3c;
+    --publico-badge: #27ae60;
+    --local-badge: #3498db; /* Azul para sistemas locais */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --border-color: #2e7d32; /* Verde para bordas */
+    --secretaria-bg: #f2f2f2; /* Fundo para tag da secretaria */
+    --mudas-icon: #bf6735
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Reset de lista para .sistemas agora como <ul> */
+.sistemas {
+    list-style: none;
+    padding-left: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Link de pulo para conteúdo */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    background: #fff;
+    color: #000;
+    padding: 8px 12px;
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Header - Reduzido em altura */
+header {
+    background-color: white;
+    color: var(--text-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-color); /* Reduzido de 4px para 3px */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.brasao {
+    height: 45px; /* Reduzido de 60px para 45px */
+    margin-right: 12px; /* Reduzido ligeiramente */
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    font-size: 20px; /* Reduzido de 24px para 20px */
+    font-weight: 600;
+    color: var(--dark-gray);
+    line-height: 1.2;
+}
+
+header h2 {
+    font-size: 16px; /* Reduzido de 20px para 16px */
+    font-weight: 400;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+/* Seções principais */
+main {
+    padding: 20px 0; /* Reduzido de 30px para 20px */
+    flex: 1 0 auto; /* Isso faz o main ocupar todo o espaço disponível */
+}
+
+/* Barra de pesquisa e filtros */
+.search-filter-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--primary-color);
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 16px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-btn {
+    background-color: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background-color: #e8f5e8;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Contador de sistemas */
+.systems-counter {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Cards de sistema */
+.sistemas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 25px;
+}
+
+.sistema-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: visible; /* Alterado de hidden para visible para permitir que a tag da secretaria seja totalmente visível */
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    position: relative; /* Para posicionar a tag da secretaria */
+    height: 100%; /* Garantir altura consistente */
+    min-height: 200px; /* Altura mínima para consistência */
+}
+
+.sistema-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.sistema-card h3 {
+    padding: 0px 10px;
+    border-radius: 40px;
+}
+
+.secretaria-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--secretaria-bg);
+    color: var(--dark-gray);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 0 8px 0 8px; /* Arredondamento apenas nos cantos específicos */
+    font-weight: 500;
+    max-width: none; /* Removido o limite de largura */
+    white-space: normal; /* Permitir quebra de linha */
+    line-height: 1.2;
+    text-align: right;
+    z-index: 1; /* Garantir que fique acima de outros elementos */
+}
+
+.sistema-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.sistema-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.sistema-icon {
+    background-color: var(--accent-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    min-width: 60px; /* Garantir largura mínima consistente */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.sistema-icon i {
+    font-size: 24px;
+}
+
+.sistema-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.sistema-info h3 {
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding-right: 10px; /* Espaço para a tag de secretaria */
+}
+
+.sistema-info p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+    flex-grow: 1; /* Faz a descrição ocupar o espaço disponível */
+}
+
+.sistema-acesso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto; /* Empurra para o final do card */
+    overflow: visible;
+    position: relative;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.interno {
+    background-color: var(--dark-gray);
+}
+
+.publico {
+    background-color: var(--primary-color);
+}
+
+.local {
+    background-color: var(--local-badge);
+}
+
+.local-info {
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    background-color: #f2f2f2;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.sistema-info .badge-desenvolvimento {
+    background-color: #e74c3c !important;
+    display: inline-block;
+    color: white !important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Estilos para badges múltiplos */
+.badges-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Estilos para dropdown */
+.btn-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-dropdown.active {
+    z-index: 9999;
+}
+
+/* Quando o dropdown estiver aberto, elevar todo o card acima dos demais */
+.sistema-card.dropdown-open {
+    z-index: 1000;
+}
+
+.dropdown-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.dropdown-btn i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.btn-dropdown.active .dropdown-btn i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    z-index: 10000;
+    display: none;
+    overflow: hidden;
+    transform: translateZ(0); /* Força novo contexto de composição */
+}
+
+.btn-dropdown.active .dropdown-menu {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.dropdown-item i {
+    font-size: 12px;
+    width: 16px;
+    text-align: center;
+}
+
+.btn-acessar {
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-acessar:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Acessibilidade: foco visível */
+.btn-acessar:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Respeitar redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+    .sistema-card:hover {
+        transform: none !important;
+        box-shadow: var(--card-shadow);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    color: var(--dark-gray);
+    text-align: center;
+    font-size: 14px;
+    flex-shrink: 0; /* Impede que o footer encolha */
+    margin-top: auto; /* Empurra o footer para o final da página */
+    border-top: 3px solid var(--primary-color); /* Reduzido de 4px para 3px */
+}
+
+footer p {
+    margin: 3px 0; /* Reduzido de 5px para 3px */
+}
+
+.admin-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.admin-access {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    transition: var(--transition);
+    background: rgba(46, 125, 50, 0.05);
+}
+
+.admin-access:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+}
+
+.admin-access i {
+    font-size: 12px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .sistemas {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .logo {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+    
+    .brasao {
+        margin-right: 10px;
+        height: 40px;
+    }
+    
+    .title-group {
+        flex: 1;
+    }
+    
+    header h1 {
+        font-size: 16px;
+        text-align: left;
+    }
+    
+    header h2 {
+        font-size: 14px;
+        text-align: left;
+    }
+    
+    /* Cards para Mobile */
+    .sistema-card {
+        min-height: auto;
+        padding: 15px;
+        border-left-width: 3px;
+        margin-bottom: 0;
+        flex-direction: column;
+    }
+    
+    .secretaria-tag {
+        position: static;
+        display: inline-block;
+        border-radius: 12px;
+        text-align: left;
+        width: 100%;
+        margin-bottom: 12px;
+        font-size: 10px;
+        background-color: #f8f8f8;
+        border-left: 2px solid var(--accent-color);
+    }
+    
+    .sistema-content {
+        flex-direction: column;
+    }
+    
+    .sistema-header {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .sistema-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .sistema-icon i {
+        font-size: 18px;
+    }
+    
+    .sistema-info {
+        margin-top: 0;
+    }
+    
+    .sistema-header h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+        line-height: 1.3;
+    }
+    
+    .sistema-info p {
+        font-size: 13px;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    .sistema-info .badge-desenvolvimento {
+        font-size: 13px;
+    }
+    
+    /* Responsividade para dropdown */
+    .badges-container {
+        margin-bottom: 8px;
+    }
+    
+    .dropdown-menu {
+        min-width: 160px;
+    }
+    
+    .dropdown-item {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+    
+    .sistema-acesso {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .sistema-acesso .badge {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+    
+    .btn-acessar {
+        padding: 5px 12px;
+        font-size: 13px;
+        margin-left: auto;
+    }
+    
+    .local-info {
+        font-size: 11px;
+        padding: 3px 8px;
+        margin-left: auto;
+    }
+    
+    /* Caso especial para o card com duas opções de acesso */
+    .mt-2 {
+        margin-top: 8px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    /* Responsividade para pesquisa e filtros */
+    .search-filter-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .search-box input {
+        font-size: 16px; /* Evita zoom no iOS */
+        padding: 10px 12px 10px 40px;
+    }
+    
+    .search-box i {
+        left: 12px;
+        font-size: 14px;
+    }
+    
+    .filter-tags {
+        gap: 6px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 16px;
+    }
+    
+    .systems-counter {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Ajustes específicos para telas muito pequenas */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .sistema-card {
+        padding: 12px;
+    }
+    
+    .secretaria-tag {
+        font-size: 9px;
+        padding: 3px 8px;
+    }
+    
+    .sistema-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+    }
+    
+    .sistema-header h3 {
+        font-size: 15px;
+    }
+    
+    .sistema-info p {
+        font-size: 12px;
+    }
+    
+    .sistema-info .badge-desenvolvimento {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    /* Dropdown para telas pequenas */
+    .dropdown-btn {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+    
+    .dropdown-item {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .dropdown-item i {
+        font-size: 10px;
+    }
+    
+    .btn-acessar, .local-info {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+} 
